@@ -31,13 +31,15 @@
 
 <body onload="main()" style="color: white;">
   <div class="main-container">
+
     <div class="canvas-container">
       <canvas class="canvas" id="jeeFaceFilterCanvas"></canvas>
-      <!-- <canvas class="canvas" width="1024" height="720" id="jeeFaceFilterCanvas"></canvas> -->
+
       <div class="ui">
         <div class="link-container">
           <button id="toggleBtn1">OVERLAY 1</button>
           <button id="toggleBtn2">OVERLAY 2</button>
+          <button id="closeBtn">CLOSE CAPTURE SCREEN</button>
 
           <button class="btn btn-dark" style="font-size: 30px;">
             <a class="link" id="download" href="#" download="capture.png" onclick="capture();">Click to download
@@ -46,6 +48,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="capture-container">
       <img class="capture" id="capture" src="image" alt="capture screen" width="1024" height="720" />
@@ -63,6 +66,11 @@
 
   body {
     background-color: black;
+  }
+
+  #close-button {
+    background-color: aquamarine;
+    margin-left: auto;
   }
 
   .main-container {
@@ -122,11 +130,6 @@
     margin-right: 10px;
   }
 
-  .capture-container {
-    display: none;
-    background-color: rgb(93, 135, 170);
-  }
-
   .btn {
     margin-left: auto;
   }
@@ -135,7 +138,18 @@
     text-decoration: none;
   }
 
+  .capture-container {
+    /* display: none; */
+    background-color: rgb(93, 135, 170);
+  }
+
   .capture {
-    background-color: brown;
+    /* display: none; */
+    /* background-color: brown; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
   }
 </style>

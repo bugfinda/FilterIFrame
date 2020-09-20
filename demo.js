@@ -56,6 +56,12 @@ function init_threeScene(spec) {
   let camHeight = 600;
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
 
+  var toggleCaptureScreen = document.getElementById("closeBtn");
+  toggleCaptureScreen.addEventListener('click', function () {
+    console.log("TOGGLE");
+    document.getElementById("capture").style.display = "none";
+  }, false);
+
   var toggleButton1 = document.getElementById('toggleBtn1');
   toggleButton1.addEventListener('click', function () {
     fisrtOverlay.visible = !fisrtOverlay.visible;
@@ -116,4 +122,5 @@ function capture() {
 
   var downloader = document.getElementById("download");
   downloader.href = dataURL;
+  document.getElementById("capture").style.display = "flex";
 }

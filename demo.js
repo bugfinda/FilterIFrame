@@ -43,21 +43,18 @@ function init_threeScene(spec) {
   }
 
   // MT216: create the frame. We reuse the geometry of the video
-  // const overlayMesh = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/box.png'), true));
   const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox.png'), true));
-  fisrtOverlay.name = "overlayMesh";
-  fisrtOverlay.renderOrder = 999; // render last
-  fisrtOverlay.frustumCulled = false;
+  fisrtOverlay.visible = false;
   threeStuffs.scene.add(fisrtOverlay);
 
   const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox2.png'), true));
-  secondOverlay.renderOrder = 999; // render last
-  secondOverlay.frustumCulled = false;
-  secondOverlay.position.set(200, 0, 0)
+  secondOverlay.visible = false;
   threeStuffs.scene.add(secondOverlay);
 
   // CREATE THE CAMERA:
-  THREECAMERA = THREE.JeelizHelper.create_camera();
+  let camWidth = 100;
+  let camHeight = 600;
+  THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
 
   var toggleButton1 = document.getElementById('toggleBtn1');
   toggleButton1.addEventListener('click', function () {

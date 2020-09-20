@@ -34,17 +34,19 @@
     <div class="canvas-container">
       <canvas class="canvas" id="jeeFaceFilterCanvas"></canvas>
       <!-- <canvas class="canvas" width="1024" height="720" id="jeeFaceFilterCanvas"></canvas> -->
-      <div class="hey">HEY</div>
-    </div>
-    <div class="link-container">
-      <button id="toggleBtn1">OVERLAY 1</button>
-      <button id="toggleBtn2">OVERLAY 2</button>
+      <div class="ui">
+        <div class="link-container">
+          <button id="toggleBtn1">OVERLAY 1</button>
+          <button id="toggleBtn2">OVERLAY 2</button>
 
-      <button class="btn btn-dark" style="font-size: 30px;">
-        <a class="link" id="download" href="#" download="capture.png" onclick="capture();">Click to download
-          capture.png</a>
-      </button>
+          <button class="btn btn-dark" style="font-size: 30px;">
+            <a class="link" id="download" href="#" download="capture.png" onclick="capture();">Click to download
+              capture.png</a>
+          </button>
+        </div>
+      </div>
     </div>
+
     <div class="capture-container">
       <img class="capture" id="capture" src="image" alt="capture screen" width="1024" height="720" />
     </div>
@@ -96,15 +98,21 @@
     height: 98%;
   }
 
-  .hey {
+  .ui {
     position: absolute;
-    background-color: red;
-    width: 100px;
+    /* background-color: red; */
+    bottom: 0;
+    width: 100%;
     z-index: 10;
   }
 
   .link-container {
-    background-color: rgb(33, 177, 221);
+    /* position: absolute; */
+    top: 90vh;
+    /* bottom: 0; */
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(33, 177, 221); */
     padding: 2rem;
     display: flex;
   }

@@ -51,7 +51,7 @@
 
 
     <div class="capture-container">
-      <img class="capture" id="capture" src="image" alt="capture screen" width="1024" height="720" />
+      <img class="capture" id="capture" src="image" alt="capture screen" />
     </div>
   </div>
 </body>
@@ -88,39 +88,37 @@
     background-color: black;
     display: flex;
     position: relative;
+    height: 100vh;
     padding-bottom: 56.25%;
     /* 16:9 */
-    /* margin-top: 0; */
-    height: 0;
-    /* padding-bottom: 26%; */
 
   }
 
   .canvas-container canvas {
-    /* flex-grow: 1; */
-    /* flex-shrink: 1; */
+    background-color: bisque;
     position: absolute;
     left: 10px;
     top: 0;
-    width: 98%;
-    height: 98%;
+    width: 98vw;
+    height: 98vh;
+    padding-bottom: 0%;
   }
 
   .ui {
     position: absolute;
     /* background-color: red; */
     bottom: 0;
+    left: 0;
     width: 100%;
     z-index: 10;
   }
 
   .link-container {
-    /* position: absolute; */
-    top: 90vh;
-    /* bottom: 0; */
+    position: absolute;
+    top: -220px;
+    left: -10px;
     width: 100%;
-    height: 100%;
-    /* background-color: rgb(33, 177, 221); */
+    height: 100;
     padding: 2rem;
     display: flex;
   }
@@ -144,12 +142,12 @@
   }
 
   .capture {
-    /* display: none; */
+    display: none;
     /* background-color: brown; */
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
   }
 </style>

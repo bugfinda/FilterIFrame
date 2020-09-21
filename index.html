@@ -43,17 +43,54 @@
     </div>
   </div>
   <div class="main-container">
-
-
     <div class="canvas-container">
       <canvas class="canvas" id="jeeFaceFilterCanvas"></canvas>
-    </div>
-
-
-    <div class="capture-container">
       <img class="capture" id="capture" src="image" alt="capture screen" />
     </div>
   </div>
+
+  <h1> iframe</h1>
+  <p>Send Message: <button id="message_button">Hi parent</button></p>
+  <p>Got Message:</p>
+  <div id="results"></div>
+
+  <script>
+    // addEventListener support for IE8
+    function bindEvent(element, eventName, eventHandler) {
+      if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+      } else if (element.attachEvent) {
+        element.attachEvent('on' + eventName, eventHandler);
+      }
+    }
+
+    // Send a message to the parent
+    var sendMessage = function (msg) {
+      // Make sure you are sending a string, and to stringify JSON
+      window.parent.postMessage(msg, '*');
+    };
+
+    var results = document.getElementById('results'),
+      messageButton = document.getElementById('message_button');
+
+    // Listen to messages from parent window
+    bindEvent(window, 'message', function (e) {
+      results.innerHTML = e.data;
+    });
+
+    // Send random message data on every button click
+    bindEvent(messageButton, 'click', function (e) {
+      var random = Math.random();
+      sendMessage('MESSAGE FROM IFRAME' + random);
+      console.log('MESSAGE FROM IFRAME');
+      sendMessage('HELLO');
+      var dataURL = document.getElementById("capture").src;
+      sendMessage(dataURL);
+
+
+    });
+  </script>
+
 </body>
 
 </html>
@@ -62,6 +99,8 @@
   html {
     box-sizing: border-box;
     margin: 0;
+    overflow: hidden !important;
+
   }
 
   body {
@@ -82,7 +121,8 @@
     height: 0;
     padding-bottom: 56.25%;
     /* 16:9 */
-
+    /* border: 20px; */
+    border-color: white;
   }
 
   .canvas-container canvas {
@@ -94,11 +134,20 @@
     padding-bottom: 0%;
   }
 
+  .capture {
+    display: none;
+    /* background-color: brown; */
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+  }
+
   .ui {
     position: absolute;
     /* background-color: red; */
     position: absolute;
-    top: calc(-200px + 56.25vw);
+    top: calc(-220px + 56.25vw);
     left: 0px;
     width: 100%;
     z-index: 10;
@@ -122,20 +171,5 @@
 
   a:link {
     text-decoration: none;
-  }
-
-  .capture-container {
-    /* display: none; */
-    background-color: rgb(93, 135, 170);
-  }
-
-  .capture {
-    display: none;
-    /* background-color: brown; */
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
   }
 </style>

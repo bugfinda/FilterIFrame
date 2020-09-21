@@ -60,6 +60,7 @@ function init_threeScene(spec) {
   toggleCaptureScreen.addEventListener('click', function () {
     console.log("TOGGLE");
     document.getElementById("capture").style.display = "none";
+    window.parent.postMessage("captured", "*")
   }, false);
 
   var toggleButton1 = document.getElementById('toggleBtn1');
@@ -123,5 +124,10 @@ function capture() {
   var downloader = document.getElementById("download");
   downloader.href = dataURL;
   document.getElementById("capture").style.display = "flex";
-  window.parent.postMessage("captured", "*")
+
+  // var image = new Image();
+  // image.src = dataURL;
+  // document.body.appendChild(image);
+
 }
+

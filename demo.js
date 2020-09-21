@@ -42,9 +42,13 @@ function init_threeScene(spec) {
     });
   }
 
+  //Offset video to right
+
   // MT216: create the frame. We reuse the geometry of the video
   const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox.png'), true));
   fisrtOverlay.visible = false;
+
+
   threeStuffs.scene.add(fisrtOverlay);
 
   const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox2.png'), true));

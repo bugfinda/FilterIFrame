@@ -112,9 +112,9 @@ THREE.JeelizHelper = (function () {
         if (!_gl.getShaderParameter(shader, _gl.COMPILE_STATUS)) {
           alert(
             "ERROR IN " +
-              typeString +
-              " SHADER: " +
-              _gl.getShaderInfoLog(shader)
+            typeString +
+            " SHADER: " +
+            _gl.getShaderInfoLog(shader)
           );
           return false;
         }
@@ -184,7 +184,7 @@ THREE.JeelizHelper = (function () {
       if (
         _isDetected &&
         ds.detected <
-          _settings.detectionThreshold - _settings.detectionHysteresis
+        _settings.detectionThreshold - _settings.detectionHysteresis
       ) {
         // DETECTION LOST
         if (_detectCallback) _detectCallback(i, false);
@@ -192,7 +192,7 @@ THREE.JeelizHelper = (function () {
       } else if (
         !_isDetected &&
         ds.detected >
-          _settings.detectionThreshold + _settings.detectionHysteresis
+        _settings.detectionThreshold + _settings.detectionHysteresis
       ) {
         // FACE DETECTED
         if (_detectCallback) _detectCallback(i, true);
@@ -378,11 +378,11 @@ THREE.JeelizHelper = (function () {
           (aPos[3 * face[0] + 1] +
             aPos[3 * face[1] + 1] +
             aPos[3 * face[2] + 1]) /
-            3, //Y
+          3, //Y
           (aPos[3 * face[0] + 2] +
             aPos[3 * face[1] + 2] +
             aPos[3 * face[2] + 2]) /
-            3, //Z
+          3, //Z
           face,
         ];
       });

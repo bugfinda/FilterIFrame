@@ -123,4 +123,5 @@ function capture() {
   var downloader = document.getElementById("download");
   downloader.href = dataURL;
   document.getElementById("capture").style.display = "flex";
+  window.parent.postMessage("Captured", "*")
 }

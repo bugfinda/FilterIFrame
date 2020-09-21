@@ -66,29 +66,19 @@
 
   body {
     background-color: rgb(24, 122, 161);
-    height: 100vh;
-  }
-
-  #close-button {
-    background-color: aquamarine;
-    margin-left: auto;
+    /* height: 800px; */
   }
 
   .main-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    align-content: center; */
     justify-content: stretch;
     margin: 0;
-    /* background-color: rgb(85, 77, 92); */
-    /* padding: 2rem; */
   }
 
   .canvas-container {
     display: flex;
     position: relative;
-    /* height: 100vh; */
     height: 0;
     padding-bottom: 56.25%;
     /* 16:9 */
@@ -108,7 +98,7 @@
     position: absolute;
     /* background-color: red; */
     position: absolute;
-    top: 0px;
+    top: calc(-200px + 56.25vw);
     left: 0px;
     width: 100%;
     z-index: 10;

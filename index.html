@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="content-language" content="en-EN" />
-
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Bug THREE component</title>
 
   <link rel="stylesheet" href="bootstrap.min.css" />
@@ -37,8 +37,7 @@
       <button id="closeBtn">CLOSE CAPTURE SCREEN</button>
 
       <button class="btn btn-dark" style="font-size: 30px;">
-        <a class="link" id="download" href="#" download="capture.png" onclick="capture();">Click to download
-          capture.png</a>
+        <a class="link" id="download" href="#" download="capture.png" onclick="capture();">Click</a>
       </button>
     </div>
   </div>
@@ -48,12 +47,13 @@
       <img class="capture" id="capture" src="image" alt="capture screen" />
     </div>
   </div>
-
-  <h1> iframe</h1>
-  <p>Send Message: <button id="message_button">Hi parent</button></p>
-  <p>Got Message:</p>
-  <div id="results"></div>
-
+  <div class="debug">
+    <h1> iframe</h1>
+    <p>Send Message: <button id="message_button">Hi parent</button></p>
+    <p>Got Message:</p>
+    <div id="results"></div>
+  </div>
+  <canvas id="capturedDataURL"></canvas>
   <script>
     // addEventListener support for IE8
     function bindEvent(element, eventName, eventHandler) {
@@ -95,7 +95,7 @@
 
 </html>
 
-<style>
+<style lang="css">
   html {
     box-sizing: border-box;
     margin: 0;
@@ -132,7 +132,7 @@
     width: 100vw;
     /* height: 98vh; */
     padding-bottom: 0%;
-    -webkit-transform: scaleX(-1);
+    /* -webkit-transform: scaleX(-1); */
     transform: scaleX(-1);
   }
 
@@ -143,13 +143,15 @@
     left: 0px;
     top: 0px;
     width: 100vw;
+    transform: scaleX(-1);
+
   }
 
   .ui {
     position: absolute;
     /* background-color: red; */
     position: absolute;
-    top: calc(-220px + 56.25vw);
+    top: calc(-100px + 56.25vw);
     left: 0px;
     width: 100%;
     z-index: 10;
@@ -173,5 +175,30 @@
 
   a:link {
     text-decoration: none;
+  }
+
+  .debug {
+    position: absolute;
+    top: 0;
+    left: 10px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    .canvas-container {
+      margin-top: 200px;
+    }
+
+    .ui {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 390px;
+      font-size: 2vw;
+
+    }
+
+    a {
+      font-size: 2vw;
+    }
   }
 </style>

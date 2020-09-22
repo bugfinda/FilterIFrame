@@ -122,16 +122,27 @@ function init_faceFilter(videoSettings) {
 // Capture canvas and download
 function capture() {
   var canvas = document.getElementById("jeeFaceFilterCanvas");
-  var dataURL = canvas.toDataURL("image/png");
-  document.getElementById("capture").src = dataURL;
+  var canvasContext = canvas.getContext('2d')
+  var canvasDataURL = document.getElementById("capturedDataURL");
+  var canvasDataURLContext = canvasDataURL.getContext('2d')
 
-  var downloader = document.getElementById("download");
-  downloader.href = dataURL;
+  var dataURL = canvas.toDataURL("image/png");
+
+  var captureImage = document.getElementById("capture");
+  captureImage.src = dataURL;
   document.getElementById("capture").style.display = "flex";
 
-  // var image = new Image();
-  // image.src = dataURL;
-  // document.body.appendChild(image);
+  canvasDataURLContext.drawImage(captureImage, 0, 0);
+  var dataURLDowload = canvasDataURL.toDataURL("image/png");
+
+
+  var downloader = document.getElementById("download");
+  downloader.href = dataURLDowload;
+
+
+  var image = new Image();
+  image.src = dataURL;
+  document.body.appendChild(image);
 
 }
 

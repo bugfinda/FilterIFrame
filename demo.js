@@ -44,14 +44,12 @@ function init_threeScene(spec) {
 
   //Offset video to right
 
-  // MT216: create the frame. We reuse the geometry of the video
+  //Create overlays. We reuse the geometry of the video
   const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox.png'), true));
   fisrtOverlay.visible = false;
-
-
   threeStuffs.scene.add(fisrtOverlay);
 
-  const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox2.png'), true));
+  const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/FotoElo.png'), true));
   secondOverlay.visible = false;
   threeStuffs.scene.add(secondOverlay);
 
@@ -77,15 +75,6 @@ function init_threeScene(spec) {
     secondOverlay.visible = !secondOverlay.visible;
   }, false);
 } // end init_threeScene()
-
-
-function toggleVisibility() {
-  // var overlayMesh = scene.getObjectByName("overlayMesh");
-  console.log("TOGGLE");
-  // overlayMesh.visible = !overlayMesh.visible;
-  // overlayMesh.needsUpdate = true;
-  // overlayMesh.updateMatrix();
-}
 
 // Entry point, launched by body.onload():
 function main() {
@@ -122,27 +111,57 @@ function init_faceFilter(videoSettings) {
 // Capture canvas and download
 function capture() {
   var canvas = document.getElementById("jeeFaceFilterCanvas");
-  var canvasContext = canvas.getContext('2d')
-  var canvasDataURL = document.getElementById("capturedDataURL");
-  var canvasDataURLContext = canvasDataURL.getContext('2d')
-
   var dataURL = canvas.toDataURL("image/png");
 
   var captureImage = document.getElementById("capture");
   captureImage.src = dataURL;
   document.getElementById("capture").style.display = "flex";
 
-  canvasDataURLContext.drawImage(captureImage, 0, 0);
-  var dataURLDowload = canvasDataURL.toDataURL("image/png");
-
-
-  var downloader = document.getElementById("download");
-  downloader.href = dataURLDowload;
-
-
-  var image = new Image();
-  image.src = dataURL;
-  document.body.appendChild(image);
-
+  drawSecondCanvas();
 }
+
+function drawSecondCanvas() {
+  const inputImage = document.querySelector('.capture');
+
+  // need to check if the image has already loaded
+  if (inputImage.complete) {
+    flipImage();
+  }
+  // if not, we wait for the onload callback to fire
+  else {
+    inputImage.onload = flipImage;
+  }
+
+  // this function will flip the imagedata
+  function flipImage() {
+
+    // create a canvas that will present the output image
+    const outputImage = document.createElement('canvas');
+
+    // set it to the same size as the image
+    outputImage.width = inputImage.naturalWidth;
+    outputImage.height = inputImage.naturalHeight;
+
+    // get the drawing context, needed to draw the new image
+    const ctx = outputImage.getContext('2d');
+
+    // scale the drawing context negatively to the left (our image is 400 pixels wide)
+    // resulting change to context: 0 to 400 -> -400 to 0
+    ctx.scale(-1, 1);
+
+    // draw our image at position [-width, 0] on the canvas, we need 
+    // a negative offset because of the negative scale transform
+    ctx.drawImage(inputImage, -outputImage.width, 0);
+
+    // insert the output image after the input image
+    // inputImage.parentNode.insertBefore(outputImage, inputImage.nextElementSibling);
+
+    var showScreen = document.getElementById('show-image');
+    showScreen.src = outputImage.toDataURL();
+
+    var downloader = document.getElementById("download");
+    downloader.href = outputImage.toDataURL();
+  }
+}
+
 

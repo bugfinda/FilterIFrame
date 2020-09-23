@@ -32,18 +32,25 @@
 <body onload="main()" style="color: white;">
   <div class="ui">
     <div class="link-container">
-      <button class="btn btn-dark" id="toggleBtn1">OVERLAY 1</button>
-      <button class="btn btn-dark" id="toggleBtn2">OVERLAY 2</button>
-      <button class="btn btn-dark" id="closeBtn">CLOSE CAPTURE SCREEN</button>
-      <button class="btn btn-dark" style="font-size: 30px;">
+      <button class="btn btn-dark" id="toggleBtn1">
+        <a href="">Overlay1</a>
+      </button>
+
+      <button class="btn btn-dark" id="toggleBtn2">
+        <a href="#">Overlay2</a>
+      </button>
+      <button class="btn btn-dark" id="closeBtn">
+        <a href="#">Close</a>
+      </button>
+      <button class="btn btn-dark">
         <a class="link" href="#" onclick="capture();">Click</a>
       </button>
-      <button class="btn btn-dark" style="font-size: 30px;">
+      <button class="btn btn-dark">
         <a class="link" id="download" href="#" download="capture.png">Download</a>
       </button>
     </div>
   </div>
-  <div class="main-container">
+  <div class="big-container">
     <div class="canvas-container">
       <canvas class="canvas" id="jeeFaceFilterCanvas"></canvas>
       <img class="capture" id="capture" src="image" alt="capture screen" />
@@ -100,18 +107,19 @@
 
 <style lang="css">
   html {
+    background-color: transparent;
     box-sizing: border-box;
     margin: 0;
-    overflow: hidden !important;
+    overflow-x: hidden !important;
 
   }
 
   body {
-    background-color: rgb(24, 122, 161);
-    /* height: 800px; */
+    background-color: transparent;
+    /* height: 60px; */
   }
 
-  .main-container {
+  .big-container {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -122,7 +130,7 @@
     display: flex;
     position: relative;
     height: 0;
-    padding-bottom: 56.25%;
+    /* padding-bottom: 56.25%; */
     /* 16:9 */
     /* border: 20px; */
     border-color: white;
@@ -158,19 +166,19 @@
   }
 
   .ui {
-    position: absolute;
     background-color: black;
     position: absolute;
-    top: calc(-10px + 50.25vw);
+    top: calc(-100px + 50.25vw);
     left: 0px;
     width: 100%;
-    height: 6vw;
+    height: px;
     z-index: 10;
   }
 
   .link-container {
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
-    height: 120px;
     padding: 2rem;
     display: flex;
   }
@@ -181,16 +189,18 @@
   }
 
   .btn {
-    margin-left: auto;
+    /* margin-left: auto; */
+
   }
 
   a:link {
     text-decoration: none;
-    padding-right: 25px;
+    /* padding-right: 25px; */
   }
 
   a {
     color: gray;
+    font-size: 16px;
   }
 
   .debug {
@@ -210,7 +220,6 @@
     }
 
     .ui {
-      display: flex;
       flex-direction: column;
       position: absolute;
       top: 390px;

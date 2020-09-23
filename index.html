@@ -33,7 +33,7 @@
   <div class="ui">
     <div class="link-container">
       <button class="btn btn-dark" id="toggleBtn1">
-        <a href="">Overlay1</a>
+        <a href="#">Overlay1</a>
       </button>
 
       <button class="btn btn-dark" id="toggleBtn2">
@@ -75,12 +75,12 @@
     }
 
     // Send a message to the parent
-    var sendMessage = function (msg) {
+    let sendMessage = function (msg) {
       // Make sure you are sending a string, and to stringify JSON
       window.parent.postMessage(msg, '*');
     };
 
-    var results = document.getElementById('results'),
+    let results = document.getElementById('results'),
       messageButton = document.getElementById('message_button');
 
     // Listen to messages from parent window
@@ -90,11 +90,11 @@
 
     // Send random message data on every button click
     bindEvent(messageButton, 'click', function (e) {
-      var random = Math.random();
+      let random = Math.random();
       sendMessage('MESSAGE FROM IFRAME' + random);
       console.log('MESSAGE FROM IFRAME');
       sendMessage('HELLO');
-      var dataURL = document.getElementById("capture").src;
+      let dataURL = document.getElementById("capture").src;
       sendMessage(dataURL);
 
 
@@ -201,6 +201,8 @@
   a {
     color: gray;
     font-size: 16px;
+    text-decoration: none;
+
   }
 
   .debug {

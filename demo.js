@@ -45,7 +45,7 @@ function init_threeScene(spec) {
   //Offset video to right
 
   //Create overlays. We reuse the geometry of the video
-  const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/screenBox.png'), true));
+  const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/FotoElo.png'), true));
   fisrtOverlay.visible = false;
   threeStuffs.scene.add(fisrtOverlay);
 
@@ -54,11 +54,9 @@ function init_threeScene(spec) {
   threeStuffs.scene.add(secondOverlay);
 
   // CREATE THE CAMERA:
-  let camWidth = 100;
-  let camHeight = 600;
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
 
-  var toggleCaptureScreen = document.getElementById("closeBtn");
+  let toggleCaptureScreen = document.getElementById("closeBtn");
   toggleCaptureScreen.addEventListener('click', function () {
     console.log("TOGGLE");
     document.getElementById("capture").style.display = "none";

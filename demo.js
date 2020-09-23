@@ -63,12 +63,12 @@ function init_threeScene(spec) {
     window.parent.postMessage("captured", "*")
   }, false);
 
-  var toggleButton1 = document.getElementById('toggleBtn1');
+  let toggleButton1 = document.getElementById('toggleBtn1');
   toggleButton1.addEventListener('click', function () {
     fisrtOverlay.visible = !fisrtOverlay.visible;
   }, false);
 
-  var toggleButton2 = document.getElementById('toggleBtn2');
+  let toggleButton2 = document.getElementById('toggleBtn2');
   toggleButton2.addEventListener('click', function () {
     secondOverlay.visible = !secondOverlay.visible;
   }, false);

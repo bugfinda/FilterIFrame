@@ -15,7 +15,6 @@ function detect_callback(isDetected) {
 // build the 3D. called once when Jeeliz Face Filter is OK:
 function init_threeScene(spec) {
   const threeStuffs = THREE.JeelizHelper.init(spec, detect_callback);
-
   const loadingManager = new THREE.LoadingManager();
 
   // CREATE THE VIDEO BACKGROUND
@@ -41,8 +40,6 @@ function init_threeScene(spec) {
       }
     });
   }
-
-  //Offset video to right
 
   //Create overlays. We reuse the geometry of the video
   const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/FotoElo.png'), true));

@@ -32,10 +32,12 @@
 <body onload="main()" style="color: white;">
   <div class="ui">
     <div class="link-container">
+      <button class="btn btn-dark" id="toggleBase">
+        <a href="#">Base</a>
+      </button>
       <button class="btn btn-dark" id="toggleBtn1">
         <a href="#">Overlay1</a>
       </button>
-
       <button class="btn btn-dark" id="toggleBtn2">
         <a href="#">Overlay2</a>
       </button>
@@ -75,8 +77,6 @@
     }
 
     // POSTMESSAGE parent/iframe COMS
-
-
     // Send a message to the parent
     let sendMessage = function (msg) {
       // Make sure you are sending a string, and to stringify JSON

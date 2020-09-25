@@ -50,7 +50,7 @@ function init_threeScene(spec) {
   secondOverlay.visible = false;
   threeStuffs.scene.add(secondOverlay);
 
-  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_1OK.png'), true));
+  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_1.png'), true));
   baseOverlay.visible = false;
   threeStuffs.scene.add(baseOverlay);
 

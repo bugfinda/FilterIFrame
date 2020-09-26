@@ -6,6 +6,7 @@
   <meta http-equiv="content-language" content="en-EN" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Bug THREE component</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="bootstrap.min.css" />
 
@@ -30,26 +31,39 @@
 </head>
 
 <body onload="main()" style="color: white;">
+  <div class="ursos">
+    <div class="texto">Escolha o Ursinho que vai estar com você na foto!</div>
+    <img class="urso1" id="toggleBtn2" src="./images/btn_urso_mic.png" alt="">
+    <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola.png" alt="">
+  </div>
   <div class="ui">
-    <div class="ursos">
-      <img class="image" id="toggleBtn2" src="./images/btn_urso_mic.png" alt="">
-      <img class="image" id="toggleBtn1" src="./images/btn_urso_bola.png" alt="">
-    </div>
+
     <div class="link-container">
-      <button class="btn btn-dark">
-        <a href="#">Overlay1</a>
+      <button class="btn">
+        <img src="./images/repeat_icon.png" alt="">
       </button>
-      <button class="btn btn-dark" id="toggleBtn2">
-        <a href="#">Overlay2</a>
+      <button class="btn" id="toggleBtn2">
+        <img src="./images/photo_icon.png" alt="">
       </button>
-      <button class="btn btn-dark" id="closeBtn">
-        <a href="#">Close</a>
+      <button class="btn" id="closeBtn">
+        <a href="#">
+          <img src="./images/send_icon.png" alt="">
+        </a>
       </button>
-      <button class="btn btn-dark">
-        <a class="link" href="#" onclick="capture();">Click</a>
+      <button class="btn">
+        <a class="link" href="#" onclick="capture();">
+          <img src="./images/download_icon.png" alt="">
+        </a>
       </button>
-      <button class="btn btn-dark">
-        <a class="link" id="download" href="#" download="capture.png">Download</a>
+      <button class="btn">
+        <a class="link" id="download" href="#" download="capture.png">
+          <img src="./images/galery_icon.png" alt="">
+        </a>
+      </button>
+      <button class="btn" id="faceBtn">
+        <a href="#">
+          <img src="./images/fb_share.png" alt="">
+        </a>
       </button>
     </div>
   </div>
@@ -111,15 +125,14 @@
 
 <style lang="css">
   html {
-    background-color: black;
+    /* background-color: black; */
     box-sizing: border-box;
     margin: 0;
     overflow-x: hidden !important;
-
   }
 
   body {
-    background-color: transparent;
+    background-color: #074989;
     /* height: 60px; */
   }
 
@@ -170,26 +183,42 @@
   }
 
   .ui {
-    background-color: transparent;
+    /* background-color: red; */
     position: absolute;
-    top: calc(-100px + 50.25vw);
+    top: calc(-186px + 50.25vw);
     left: 0px;
     width: 100vw;
     z-index: 10;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    /* justify-content: flex-end; */
   }
 
   .ursos {
-    flex-grow: 1;
-    padding-left: 4%;
-    margin-top: -1%;
+    position: absolute;
+    top: calc(-380px + 50.25vw);
+    left: 0px;
+    width: 100vw;
+    z-index: 11;
+
   }
 
-  .image {
-    height: 100px;
+  .texto {
+    font-size: 21px;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 10px;
+    margin-left: -30px;
+  }
 
+  .urso1 {
+    padding-left: 4%;
+    height: 12vw;
+  }
+
+  .urso2 {
+    margin-bottom: -40px;
+    height: 8vw;
   }
 
   .link-container {
@@ -197,7 +226,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height: 100px;
+    /* height: 100px; */
     padding: 2rem;
     margin-top: 60px;
     display: flex;

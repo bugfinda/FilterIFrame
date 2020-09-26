@@ -77,7 +77,7 @@ function init_threeScene(spec) {
   toggleCaptureScreen.addEventListener('click', function () {
     console.log("TOGGLE");
     document.getElementById("capture").style.display = "none";
-    window.parent.postMessage("captured", "*")
+
   }, false);
 
   let toggleButton1 = document.getElementById('toggleBtn1');
@@ -192,6 +192,7 @@ function drawSecondCanvas() {
 
     var downloader = document.getElementById("download");
     downloader.href = outputImage.toDataURL();
+    window.parent.postMessage(outputImage.toDataURL(), "*")
   }
 }
 

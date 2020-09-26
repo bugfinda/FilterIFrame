@@ -57,6 +57,22 @@ function init_threeScene(spec) {
   // CREATE THE CAMERA:
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
 
+
+  // Buttons State
+
+  let galeryBtn = document.getElementById('galeryBtn');
+  let closeBtn = document.getElementById('closeBtn');
+  let captureBtn = document.getElementById('captureBtn');
+  let downloadBtn = document.getElementById('downloadBtn');
+  let faceBtn = document.getElementById('faceBtn');
+
+  galeryBtn.style.display = 'none';
+  closeBtn.style.display = 'none';
+  downloadBtn.style.display = 'none';
+  faceBtn.style.display = 'none';
+  captureBtn.style.display = 'flex';
+
+
   let toggleCaptureScreen = document.getElementById("closeBtn");
   toggleCaptureScreen.addEventListener('click', function () {
     console.log("TOGGLE");
@@ -80,6 +96,8 @@ function init_threeScene(spec) {
     baseOverlay.visible = false;
     if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true };
   }, false);
+
+
 } // end init_threeScene()
 
 // Entry point, launched by body.onload():
@@ -116,6 +134,13 @@ function init_faceFilter(videoSettings) {
 
 // Capture canvas and download
 function capture() {
+
+  galeryBtn.style.display = 'flex';
+  closeBtn.style.display = 'flex';
+  downloadBtn.style.display = 'flex';
+  faceBtn.style.display = 'flex';
+  captureBtn.style.display = 'none';
+
   var canvas = document.getElementById("jeeFaceFilterCanvas");
   var dataURL = canvas.toDataURL("image/png");
 

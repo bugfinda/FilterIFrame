@@ -42,6 +42,10 @@ function init_threeScene(spec) {
   }
 
   //Create overlays. We reuse the geometry of the video
+  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_1.png'), true));
+  baseOverlay.visible = true;
+  threeStuffs.scene.add(baseOverlay);
+
   const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_2.png'), true));
   fisrtOverlay.visible = false;
   threeStuffs.scene.add(fisrtOverlay);
@@ -49,10 +53,6 @@ function init_threeScene(spec) {
   const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_3.png'), true));
   secondOverlay.visible = false;
   threeStuffs.scene.add(secondOverlay);
-
-  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_1.png'), true));
-  baseOverlay.visible = false;
-  threeStuffs.scene.add(baseOverlay);
 
   // CREATE THE CAMERA:
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
@@ -64,19 +64,21 @@ function init_threeScene(spec) {
     window.parent.postMessage("captured", "*")
   }, false);
 
-  let toggleBase = document.getElementById('toggleBase');
-  toggleBase.addEventListener('click', function () {
-    baseOverlay.visible = !baseOverlay.visible;
-  }, false);
-
   let toggleButton1 = document.getElementById('toggleBtn1');
   toggleButton1.addEventListener('click', function () {
     fisrtOverlay.visible = !fisrtOverlay.visible;
+    secondOverlay.visible = false;
+    baseOverlay.visible = false;
+    if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true }
+
   }, false);
 
   let toggleButton2 = document.getElementById('toggleBtn2');
   toggleButton2.addEventListener('click', function () {
+    fisrtOverlay.visible = false;
     secondOverlay.visible = !secondOverlay.visible;
+    baseOverlay.visible = false;
+    if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true };
   }, false);
 } // end init_threeScene()
 

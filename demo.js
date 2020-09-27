@@ -83,8 +83,8 @@ function init_threeScene(spec) {
     downloadBtn.style.display = 'none';
     faceBtn.style.display = 'none';
     captureBtn.style.display = 'flex';
-    toggleButton1.style.display = 'block';
-    toggleButton2.style.display = 'block';
+    // toggleButton1.style.display = 'block';
+    // toggleButton2.style.display = 'block';
     texto.style.display = 'block';
 
   }, false);
@@ -151,8 +151,8 @@ function capture() {
   let toggleButton1 = document.getElementById('toggleBtn1');
   let toggleButton2 = document.getElementById('toggleBtn2');
   let texto = document.getElementById('texto');
-  toggleButton1.style.display = 'none';
-  toggleButton2.style.display = 'none';
+  // toggleButton1.style.display = 'none';
+  // toggleButton2.style.display = 'none';
   texto.style.display = 'none';
 
   var canvas = document.getElementById("jeeFaceFilterCanvas");

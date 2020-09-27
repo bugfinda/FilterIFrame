@@ -206,7 +206,8 @@ function drawSecondCanvas() {
 // }
 
 function sendToGalery() {
-  window.parent.postMessage('sendToGallery', '*');
+  console.log("send to galery");
+  window.parent.postMessage('sendToGalery', '*');
 }
 
 function convertURIToImageData(URI) {

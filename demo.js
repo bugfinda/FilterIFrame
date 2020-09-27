@@ -6,9 +6,9 @@ let THREECAMERA = null;
 // callback: launched if a face is detected or lost
 function detect_callback(isDetected) {
   if (isDetected) {
-    console.log('INFO in detect_callback(): DETECTED');
+    // console.log('INFO in detect_callback(): DETECTED');
   } else {
-    console.log('INFO in detect_callback(): LOST');
+    // console.log('INFO in detect_callback(): LOST');
   }
 }
 
@@ -75,8 +75,13 @@ function init_threeScene(spec) {
 
   let toggleCaptureScreen = document.getElementById("closeBtn");
   toggleCaptureScreen.addEventListener('click', function () {
-    console.log("TOGGLE");
     document.getElementById("capture").style.display = "none";
+
+    galeryBtn.style.display = 'none';
+    closeBtn.style.display = 'none';
+    downloadBtn.style.display = 'none';
+    faceBtn.style.display = 'none';
+    captureBtn.style.display = 'flex';
 
   }, false);
 
@@ -117,11 +122,11 @@ function init_faceFilter(videoSettings) {
     videoSettings: videoSettings,
     callbackReady: function (errCode, spec) {
       if (errCode) {
-        console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
+        console.log('AN ERROR HAPPENS. SORRY :( . ERR =', errCode);
         return;
       }
 
-      console.log('INFO: JEEFACEFILTERAPI IS READY');
+      // console.log('INFO: JEEFACEFILTERAPI IS READY');
       init_threeScene(spec);
     },
 
@@ -187,13 +192,46 @@ function drawSecondCanvas() {
     // insert the output image after the input image
     // inputImage.parentNode.insertBefore(outputImage, inputImage.nextElementSibling);
 
-    var showScreen = document.getElementById('show-image');
+    let showScreen = document.getElementById('show-image');
     showScreen.src = outputImage.toDataURL();
 
-    var downloader = document.getElementById("download");
+    let downloader = document.getElementById("download");
     downloader.href = outputImage.toDataURL();
-    window.parent.postMessage(outputImage.toDataURL(), "*")
+
+    // window.parent.postMessage(outputImage.toDataURL(), "*")
   }
 }
 
+function download() {
+  let downloader = document.getElementById("download");
+  window.parent.postMessage(downloader.href, '*');
 
+  convertURIToImageData(downloader.href).then(function (imageData) {
+    // Aqui sai o arquivo de imagem
+    console.log('imagedata: ' + imageData);
+  });
+
+}
+
+function convertURIToImageData(URI) {
+  return new Promise(function (resolve, reject) {
+    if (URI == null) return reject();
+    let canvas = document.createElement('canvas'),
+      context = canvas.getContext('2d'),
+      image = new Image();
+    image.addEventListener(
+      'load',
+      function () {
+        canvas.width = image.width;
+        canvas.height = image.height;
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        resolve(context.getImageData(0, 0, canvas.width, canvas.height));
+        let imageFile = canvas.toDataURL('image/png').slice(22);
+        console.log('imageFile: ' + imageFile)
+
+      },
+      false,
+    );
+    image.src = URI;
+  });
+}

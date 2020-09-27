@@ -103,7 +103,6 @@ function init_threeScene(spec) {
     if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true };
   }, false);
 
-
 } // end init_threeScene()
 
 // Entry point, launched by body.onload():

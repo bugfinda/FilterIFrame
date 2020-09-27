@@ -177,18 +177,18 @@
   .ursos {
     position: absolute;
     z-index: 11;
-    margin-top: -150px;
+    margin-top: -120px;
     width: 100%;
     text-align: center;
     padding-right: 700px;
   }
 
   .urso1 {
-    /* height: 60px; */
+    height: 60px;
   }
 
   .urso2 {
-    /* height: 60px; */
+    height: 100px;
   }
 
   .texto {
@@ -234,6 +234,13 @@
     bottom: 100px;
   }
 
+  @media only screen and (max-width: 1100px) {
+
+    .ursos {
+      display: none;
+    }
+  }
+
   @media only screen and (max-width: 500px) {
     .canvas-container {
       margin-top: 200px;
@@ -246,6 +253,7 @@
       font-size: 2vw;
 
     }
+
 
     a {
       font-size: 2vw;

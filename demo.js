@@ -67,6 +67,7 @@ function init_threeScene(spec) {
   let faceBtn = document.getElementById('faceBtn');
   let toggleButton1 = document.getElementById('toggleBtn1');
   let toggleButton2 = document.getElementById('toggleBtn2');
+  let texto = document.getElementById('texto');
 
   galeryBtn.style.display = 'none';
   closeBtn.style.display = 'none';
@@ -84,6 +85,7 @@ function init_threeScene(spec) {
     captureBtn.style.display = 'flex';
     toggleButton1.style.display = 'flex';
     toggleButton2.style.display = 'flex';
+    texto.style.display = 'block';
 
   }, false);
 
@@ -145,8 +147,13 @@ function capture() {
   downloadBtn.style.display = 'flex';
   faceBtn.style.display = 'flex';
   captureBtn.style.display = 'none';
+
+  let toggleButton1 = document.getElementById('toggleBtn1');
+  let toggleButton2 = document.getElementById('toggleBtn2');
+  let texto = document.getElementById('texto');
   toggleButton1.style.display = 'none';
   toggleButton2.style.display = 'none';
+  texto.style.display = 'none';
 
   var canvas = document.getElementById("jeeFaceFilterCanvas");
   var dataURL = canvas.toDataURL("image/png");

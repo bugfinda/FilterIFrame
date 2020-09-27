@@ -57,9 +57,7 @@ function init_threeScene(spec) {
   // CREATE THE CAMERA:
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
 
-
   // Buttons State
-
   let galeryBtn = document.getElementById('galeryBtn');
   let closeBtn = document.getElementById('closeBtn');
   let captureBtn = document.getElementById('captureBtn');
@@ -68,6 +66,9 @@ function init_threeScene(spec) {
   let toggleButton1 = document.getElementById('toggleBtn1');
   let toggleButton2 = document.getElementById('toggleBtn2');
   let ursos = document.getElementById('ursos');
+  let loadingCard = document.getElementById('loading');
+
+  loadingCard.style.display = 'none';
 
   galeryBtn.style.display = 'none';
   closeBtn.style.display = 'none';
@@ -103,6 +104,7 @@ function init_threeScene(spec) {
     if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true };
   }, false);
 
+
 } // end init_threeScene()
 
 // Entry point, launched by body.onload():
@@ -121,6 +123,7 @@ function init_faceFilter(videoSettings) {
     NNCpath: '../../../dist/', // root of NNC.json file
     videoSettings: videoSettings,
     callbackReady: function (errCode, spec) {
+
       if (errCode) {
         console.log('AN ERROR HAPPENS. SORRY :( . ERR =', errCode);
         return;

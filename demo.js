@@ -83,7 +83,8 @@ function init_threeScene(spec) {
     downloadBtn.style.display = 'none';
     faceBtn.style.display = 'none';
     captureBtn.style.display = 'flex';
-    ursos.style.display = 'flex';
+
+    ursos.style.visibility = 'visible';
 
   }, false);
 
@@ -147,7 +148,7 @@ function capture() {
   captureBtn.style.display = 'none';
 
   let ursos = document.getElementById('ursos');
-  ursos.style.display = 'none';
+  ursos.style.visibility = 'hidden';
 
   var canvas = document.getElementById("jeeFaceFilterCanvas");
   var dataURL = canvas.toDataURL("image/png");

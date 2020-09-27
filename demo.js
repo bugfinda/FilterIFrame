@@ -65,6 +65,8 @@ function init_threeScene(spec) {
   let captureBtn = document.getElementById('captureBtn');
   let downloadBtn = document.getElementById('downloadBtn');
   let faceBtn = document.getElementById('faceBtn');
+  let toggleButton1 = document.getElementById('toggleBtn1');
+  let toggleButton2 = document.getElementById('toggleBtn2');
 
   galeryBtn.style.display = 'none';
   closeBtn.style.display = 'none';
@@ -72,9 +74,7 @@ function init_threeScene(spec) {
   faceBtn.style.display = 'none';
   captureBtn.style.display = 'flex';
 
-
-  let toggleCaptureScreen = document.getElementById("closeBtn");
-  toggleCaptureScreen.addEventListener('click', function () {
+  closeBtn.addEventListener('click', function () {
     document.getElementById("capture").style.display = "none";
 
     galeryBtn.style.display = 'none';
@@ -82,10 +82,11 @@ function init_threeScene(spec) {
     downloadBtn.style.display = 'none';
     faceBtn.style.display = 'none';
     captureBtn.style.display = 'flex';
+    toggleButton1.style.display = 'flex';
+    toggleButton2.style.display = 'flex';
 
   }, false);
 
-  let toggleButton1 = document.getElementById('toggleBtn1');
   toggleButton1.addEventListener('click', function () {
     fisrtOverlay.visible = !fisrtOverlay.visible;
     secondOverlay.visible = false;
@@ -94,7 +95,6 @@ function init_threeScene(spec) {
 
   }, false);
 
-  let toggleButton2 = document.getElementById('toggleBtn2');
   toggleButton2.addEventListener('click', function () {
     fisrtOverlay.visible = false;
     secondOverlay.visible = !secondOverlay.visible;
@@ -145,6 +145,8 @@ function capture() {
   downloadBtn.style.display = 'flex';
   faceBtn.style.display = 'flex';
   captureBtn.style.display = 'none';
+  toggleButton1.style.display = 'none';
+  toggleButton2.style.display = 'none';
 
   var canvas = document.getElementById("jeeFaceFilterCanvas");
   var dataURL = canvas.toDataURL("image/png");
@@ -200,36 +202,10 @@ function drawSecondCanvas() {
   }
 }
 
-// function download() {
-//   let downloader = document.getElementById("download");
-
-// }
-
 function sendToGalery() {
   console.log("send to galery");
   let downloader = document.getElementById("download");
   window.parent.postMessage(downloader.href, '*');
 }
 
-function convertURIToImageData(URI) {
-  return new Promise(function (resolve, reject) {
-    if (URI == null) return reject();
-    let canvas = document.createElement('canvas'),
-      context = canvas.getContext('2d'),
-      image = new Image();
-    image.addEventListener(
-      'load',
-      function () {
-        canvas.width = image.width;
-        canvas.height = image.height;
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
-        resolve(context.getImageData(0, 0, canvas.width, canvas.height));
-        let imageFile = canvas.toDataURL('image/png').slice(22);
-        console.log('imageFile: ')
 
-      },
-      false,
-    );
-    image.src = URI;
-  });
-}

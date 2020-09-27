@@ -207,7 +207,8 @@ function drawSecondCanvas() {
 
 function sendToGalery() {
   console.log("send to galery");
-  window.parent.postMessage('sendToGalery', '*');
+  let downloader = document.getElementById("download");
+  window.parent.postMessage(downloader.href, '*');
 }
 
 function convertURIToImageData(URI) {

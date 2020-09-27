@@ -83,8 +83,8 @@ function init_threeScene(spec) {
     downloadBtn.style.display = 'none';
     faceBtn.style.display = 'none';
     captureBtn.style.display = 'flex';
-    toggleButton1.style.display = 'flex';
-    toggleButton2.style.display = 'flex';
+    toggleButton1.style.display = 'block';
+    toggleButton2.style.display = 'block';
     texto.style.display = 'block';
 
   }, false);

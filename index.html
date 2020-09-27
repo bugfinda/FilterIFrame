@@ -41,16 +41,11 @@
       <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola120.png" alt="">
     </div>
     <div class="texto" id="texto">
-      <!-- <img class="urso1" id="toggleBtn2" src="./images/btn_urso_mic.png" alt=""> -->
-      <!-- <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola.png" alt=""> -->
       Escolha o Ursinho que vai estar com você na foto!
 
     </div>
 
     <div class="link-container">
-      <!-- <button class="btn" id="toggleBtn2">
-        <img src="./images/send_icon.png" alt="">
-      </button> -->
       <button class="btn" id="galeryBtn" onclick="sendToGalery();">
         <a href="#">
           <img src="./images/galery_icon.png" alt="">
@@ -90,51 +85,7 @@
       <img class="capture" id="capture" src="image" alt="capture screen" />
     </div>
   </div>
-  <!-- <div class="debug">
-    <h1> iframe</h1>
-    <p>Send Message: <button id="message_button">Hi parent</button></p>
-    <p>Got Message:</p>
-    <div id="results"></div>
-  </div> -->
-
   <img id="show-image" src="image" alt>
-  <!-- <script>
-    // addEventListener support for IE8
-    function bindEvent(element, eventName, eventHandler) {
-      if (element.addEventListener) {
-        element.addEventListener(eventName, eventHandler, false);
-      } else if (element.attachEvent) {
-        element.attachEvent('on' + eventName, eventHandler);
-      }
-    }
-
-    // POSTMESSAGE parent/iframe COMS
-    // Send a message to the parent
-    let sendMessage = function (msg) {
-      // Make sure you are sending a string, and to stringify JSON
-      window.parent.postMessage(msg, '*');
-    };
-
-    let results = document.getElementById('results'),
-      messageButton = document.getElementById('message_button');
-
-    // Listen to messages from parent window
-    bindEvent(window, 'message', function (e) {
-      results.innerHTML = e.data;
-    });
-
-    // Send random message data on every button click
-    bindEvent(messageButton, 'click', function (e) {
-      let random = Math.random();
-      sendMessage('MESSAGE FROM IFRAME' + random);
-      console.log('MESSAGE FROM IFRAME');
-      sendMessage('HELLO');
-      let dataURL = document.getElementById("capture").src;
-      sendMessage(dataURL);
-
-
-    });
-  </script> -->
 
 </body>
 

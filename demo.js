@@ -142,6 +142,10 @@ function init_faceFilter(videoSettings) {
 
 // Capture canvas and download
 function capture() {
+  // LOAD CLICK SOUND
+  let clickSound = new Audio('./sounds/camera-shutter-click.mp3');
+  clickSound.volume = 0.9;
+  clickSound.play();
 
   galeryBtn.style.display = 'flex';
   closeBtn.style.display = 'flex';

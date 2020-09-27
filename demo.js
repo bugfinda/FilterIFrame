@@ -208,7 +208,7 @@ function download() {
 
   convertURIToImageData(downloader.href).then(function (imageData) {
     // Aqui sai o arquivo de imagem
-    console.log('imagedata: ' + imageData);
+    console.log('imagedata: ');
   });
 
 }
@@ -227,7 +227,7 @@ function convertURIToImageData(URI) {
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
         resolve(context.getImageData(0, 0, canvas.width, canvas.height));
         let imageFile = canvas.toDataURL('image/png').slice(22);
-        console.log('imageFile: ' + imageFile)
+        console.log('imageFile: ')
 
       },
       false,

@@ -197,17 +197,16 @@ function drawSecondCanvas() {
 
     let downloader = document.getElementById("download");
     downloader.href = outputImage.toDataURL();
-
-    window.parent.postMessage('sendToGallery', '*');
-
   }
 }
 
-function download() {
-  let downloader = document.getElementById("download");
+// function download() {
+//   let downloader = document.getElementById("download");
 
+// }
 
-
+function sendToGalery() {
+  window.parent.postMessage('sendToGallery', '*');
 }
 
 function convertURIToImageData(URI) {

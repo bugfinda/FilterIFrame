@@ -217,7 +217,9 @@ function sendToGalery() {
 }
 
 function sendToFacebook() {
-  window.parent.postMessage('facebook', '*');
+  let downloader = document.getElementById("download");
+  let msg = JSON.stringify({ 'sender': 'facebook', 'link': downloader.href })
+  window.parent.postMessage(msg, '*');
 }
 
 

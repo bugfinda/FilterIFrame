@@ -213,12 +213,13 @@ function drawSecondCanvas() {
 function sendToGalery() {
   console.log("send to galery");
   let downloader = document.getElementById("download");
-  window.parent.postMessage(downloader.href, '*');
+  let msg = JSON.stringify({ 'sender': 'upload', 'uri': downloader.href })
+  window.parent.postMessage(msg, '*');
 }
 
 function sendToFacebook() {
   let downloader = document.getElementById("download");
-  let msg = JSON.stringify({ 'sender': 'facebook', 'link': downloader.href })
+  let msg = JSON.stringify({ 'sender': 'facebook', 'uri': downloader.href })
   window.parent.postMessage(msg, '*');
 }
 

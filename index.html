@@ -31,10 +31,6 @@
 </head>
 
 <body onload="main()" style="color: white;">
-  <div id="fb-root"></div>
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0"
-    nonce="BPqi52AU"></script>
   <div class="loading" id="loading">
     <h2>Carregando câmera</h2>
   </div>
@@ -71,14 +67,8 @@
       </button>
 
       <button class="btn" id="faceBtn">
-        <!-- <a
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
-          <img src="./images/fb_share.png" alt="">
-        </a> -->
-        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button"
-          data-size="large"><a target="_blank"
-            href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-            class="fb-xfbml-parse-ignore">Share</a></div>
+        <!-- facebook -->
+        <img src="./images/fb_share.png" alt="Share on Facebook" onclick="sendToFacebook();">
       </button>
     </div>
   </div>
@@ -220,7 +210,12 @@
 
   }
 
-
+  #faceBtn,
+  .btn {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
 
   #toggleBtn1,
   #toggleBtn2 {

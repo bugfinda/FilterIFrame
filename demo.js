@@ -216,4 +216,14 @@ function sendToGalery() {
   window.parent.postMessage(downloader.href, '*');
 }
 
+function sendToFacebook() {
+  let downloader = document.getElementById("download");
+  let base64 = downloader.href;
+  let imageData = base64.match(/data:(image\/.+);base64,(.+)/);
+
+  window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(`http://www.google.com`), 'facebook-share-dialog', 'width=626,height=436');
+
+  // return false;
+}
+
 

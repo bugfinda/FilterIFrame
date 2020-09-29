@@ -8,7 +8,7 @@ function detect_callback(isDetected) {
   if (isDetected) {
     // console.log('INFO in detect_callback(): DETECTED');
   } else {
-    console.log('INFO in detect_callback(): LOST');
+    // console.log('INFO in detect_callback(): LOST');
   }
 }
 
@@ -79,7 +79,9 @@ function init_threeScene(spec) {
   let coresDiv = document.getElementById('coresDiv');
   let ursosDiv = document.getElementById('ursosDiv');
   let loadingCard = document.getElementById('loading');
+  let callToAction = document.getElementById('cta');
 
+  callToAction.style.display = 'none'
   loadingCard.style.display = 'none';
 
   coresDiv.style.visibility = 'visible';
@@ -170,7 +172,12 @@ function init_faceFilter(videoSettings) {
     callbackReady: function (errCode, spec) {
 
       if (errCode) {
-        console.log('AN ERROR HAPPENS. SORRY :( . ERR =', errCode);
+        let cameraText = document.getElementById('cameraText');
+        // cameraText.style.display = 'none';
+        cameraText.innerHTML = 'Câmera indisponível 😔';
+        // cameraText.innerHTML = 'Câmera indisponível'
+
+        console.log('AN ERROR HAPPENED. SORRY :( . ERR =', errCode);
         return;
       }
 

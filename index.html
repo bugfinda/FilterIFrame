@@ -5,7 +5,8 @@
   <meta charset="utf-8" />
   <meta http-equiv="content-language" content="en-EN" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Bug THREE component</title>
+  <title>Cabine de Fotos</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="bootstrap.min.css" />
@@ -31,15 +32,18 @@
 </head>
 
 <body onload="main()" style="color: white;">
+  <div class="cta" id="cta">
+    <img src="./images/callToAction.jpg" alt="">
+  </div>
+
   <div class="loading" id="loading">
-    <h2>Carregando câmera</h2>
+    <h2 id="cameraText">Carregando câmera ✨</h2>
   </div>
 
   <div class=" ui">
-
     <div class="cores" id="coresDiv">
       <div class="cores-texto">
-        Escolha o template da foto!
+        Escolha o template<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; da foto!
       </div>
       <img class="cor1" id="toggleColor1" src="./images/darkBlue_btn.png" alt="">
       <img class="cor2" id="toggleColor2" src="./images/blue_btn.png" alt="">
@@ -48,7 +52,7 @@
     </div>
     <div class="ursos" id="ursosDiv">
       <div class="ursos-texto">
-        Escolha o Ursinho que vai estar com você na foto!
+        Escolha o Ursinho que vai estar<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; com você na foto!
       </div>
       <img class="urso1" id="toggleBtn2" src="./images/btn_urso_mic120.png" alt="">
       <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola120.png" alt="">
@@ -62,7 +66,7 @@
         </a>
       </button>
       <button class="btn" id="downloadBtn">
-        <a class=" link" id="download" href="#" download="capture.png">
+        <a class=" link" id="download" href="#" download="CieloDigitalSummit2020.jpg">
           <img src=" ./images/download_icon.png" alt="">
         </a>
       </button>
@@ -83,6 +87,7 @@
       </button>
     </div>
   </div>
+
   <div class="big-container">
     <div class="canvas-container">
       <canvas class="canvas" id="jeeFaceFilterCanvas"></canvas>
@@ -104,7 +109,19 @@
 
   body {
     background-color: #074989;
+    font-family: 'Montserrat', sans-serif;
+
     /* height: 60px; */
+    display: flex;
+  }
+
+  .cta {
+    z-index: 11;
+  }
+
+  .cta img {
+    width: 100vw;
+    height: auto;
   }
 
   .big-container {
@@ -177,8 +194,6 @@
     z-index: 10;
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
-    /* justify-content: flex-end; */
   }
 
   .link-container {
@@ -194,41 +209,44 @@
   .ursos {
     position: absolute;
     z-index: 11;
-    margin-top: -140px;
+    bottom: 7.6vw;
     width: 100%;
-    left: 400px;
+    height: 100%;
     /* text-align: center; */
-    /* padding-right: 200px; */
+    left: 23vw;
+    margin-bottom: 10px;
+
   }
 
-  .urso1 {
-    /* height: 100%; */
-  }
-
-  .urso2 {
-    /* height: 100%; */
+  .ursos img {
+    height: 5.4vw;
+    width: 5.4vw;
   }
 
   .ursos-texto {
-    position: absolute;
-    z-index: 11;
-    margin-top: -5px;
-
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding-right: 800px;
-
+    font-size: 1.2vw;
+    margin-left: -30px;
+    margin-bottom: -5px;
   }
 
   .cores {
     position: absolute;
     z-index: 11;
-    margin-top: -140px;
+    bottom: 8.1vw;
     width: 100%;
-    /* text-align: center; */
-    left: 0;
-    /* padding-right: 800px; */
+    height: 100%;
+    left: 40px;
+  }
+
+  .cores img {
+    margin: 5px;
+    height: 3.6vw;
+    width: 3.6vw;
+  }
+
+  .cores-texto {
+    padding-left: 18px;
+    font-size: 1.2vw;
   }
 
   #faceBtn,
@@ -236,6 +254,10 @@
     outline: none;
     border: none;
     box-shadow: none;
+  }
+
+  .btn:active {
+    transform: scale(1.2);
   }
 
   #toggleBtn1,
@@ -268,19 +290,27 @@
   }
 
   @media only screen and (max-width: 1100px) {
-
-    .ursos {
-      display: none;
+    .loading {
+      position: absolute;
+      top: calc(-20px + 50.25vw);
+      left: 0px;
+      width: 100vw;
+      height: 50px;
+      z-index: 11;
+      background-color: black;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
     }
-  }
 
-  @media only screen and (max-width: 500px) {
-    .canvas-container {
-      /* margin-top: 200px; */
+    .loading h2 {
+      font-size: 3vw;
     }
 
     .ui {
-      flex-direction: column;
+      /* flex-direction: column; */
       position: absolute;
       top: calc(-10px + 50.25vw);
       font-size: 2vw;
@@ -296,12 +326,55 @@
       display: flex;
     }
 
+    /* .cores {
+      position: absolute;
+      z-index: 11;
+      bottom: 4vw;
+      width: 100%;
+      height: 100%;
+      left: 40px;
+    } */
+    .cores-texto {
+      padding-left: 8px;
+      font-size: 1.2vw;
+    }
+
+    .cores img {
+      margin: 5px;
+      height: 2.6vw;
+      width: 2.6vw;
+    }
+
+    .ursos {
+      /* display: none; */
+      margin-bottom: 3px;
+    }
+
+    .ursos img {
+      height: 4.4vw;
+      width: 4.4vw;
+    }
+
+    .ursos-texto {
+      font-size: 1.2vw;
+      margin-left: -30px;
+      /* margin-bottom: -10px; */
+    }
+
     .btn img {
       height: 25px;
     }
 
     a {
       font-size: 2vw;
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
+
+    .cores,
+    .ursos {
+      display: none;
     }
   }
 </style>

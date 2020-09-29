@@ -8,7 +8,7 @@ function detect_callback(isDetected) {
   if (isDetected) {
     // console.log('INFO in detect_callback(): DETECTED');
   } else {
-    // console.log('INFO in detect_callback(): LOST');
+    console.log('INFO in detect_callback(): LOST');
   }
 }
 
@@ -42,17 +42,25 @@ function init_threeScene(spec) {
   }
 
   //Create overlays. We reuse the geometry of the video
-  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_1.png'), true));
+  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template1.png'), true));
   baseOverlay.visible = true;
   threeStuffs.scene.add(baseOverlay);
 
-  const fisrtOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_2.png'), true));
-  fisrtOverlay.visible = false;
-  threeStuffs.scene.add(fisrtOverlay);
+  const blueOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template3.png'), true));
+  blueOverlay.visible = false;
+  threeStuffs.scene.add(blueOverlay);
 
-  const secondOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template_foto_3.png'), true));
-  secondOverlay.visible = false;
-  threeStuffs.scene.add(secondOverlay);
+  const purpleOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template2.png'), true));
+  purpleOverlay.visible = false;
+  threeStuffs.scene.add(purpleOverlay);
+
+  const ballOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/ursoBola.png'), true));
+  ballOverlay.visible = false;
+  threeStuffs.scene.add(ballOverlay);
+
+  const micOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/ursoMic.png'), true));
+  micOverlay.visible = false;
+  threeStuffs.scene.add(micOverlay);
 
   // CREATE THE CAMERA:
   THREECAMERA = new THREE.OrthographicCamera(1, 1, 1, 1, 1, 1000);
@@ -63,12 +71,19 @@ function init_threeScene(spec) {
   let captureBtn = document.getElementById('captureBtn');
   let downloadBtn = document.getElementById('downloadBtn');
   let faceBtn = document.getElementById('faceBtn');
+  let toggleColor1 = document.getElementById('toggleColor1');
+  let toggleColor2 = document.getElementById('toggleColor2');
+  let toggleColor3 = document.getElementById('toggleColor3');
   let toggleButton1 = document.getElementById('toggleBtn1');
   let toggleButton2 = document.getElementById('toggleBtn2');
-  let ursos = document.getElementById('ursos');
+  let coresDiv = document.getElementById('coresDiv');
+  let ursosDiv = document.getElementById('ursosDiv');
   let loadingCard = document.getElementById('loading');
 
   loadingCard.style.display = 'none';
+
+  coresDiv.style.visibility = 'visible';
+  ursosDiv.style.visibility = 'hidden';
 
   galeryBtn.style.display = 'none';
   closeBtn.style.display = 'none';
@@ -85,23 +100,53 @@ function init_threeScene(spec) {
     faceBtn.style.display = 'none';
     captureBtn.style.display = 'flex';
 
-    ursos.style.visibility = 'visible';
+    coresDiv.style.visibility = 'visible';
+    ursosDiv.style.visibility = 'visible';
+
+  }, false);
+
+  toggleColor1.addEventListener('click', function () {
+    baseOverlay.visible = true;
+    blueOverlay.visible = false;
+    purpleOverlay.visible = false;
+    micOverlay.visible = false;
+    ballOverlay.visible = false;
+
+    ursosDiv.style.visibility = 'hidden';
+
+  }, false);
+
+  toggleColor2.addEventListener('click', function () {
+    baseOverlay.visible = false;
+    blueOverlay.visible = true;
+    purpleOverlay.visible = false;
+
+    ursosDiv.style.visibility = 'visible';
+
+  }, false);
+
+  toggleColor3.addEventListener('click', function () {
+    baseOverlay.visible = false;
+    blueOverlay.visible = false;
+    purpleOverlay.visible = true;
+
+    ursosDiv.style.visibility = 'visible';
 
   }, false);
 
   toggleButton1.addEventListener('click', function () {
-    fisrtOverlay.visible = !fisrtOverlay.visible;
-    secondOverlay.visible = false;
+    ballOverlay.visible = !ballOverlay.visible;
+    micOverlay.visible = false;
     baseOverlay.visible = false;
-    if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true }
+    // if (!ballOverlay.visible && !micOverlay.visible) { baseOverlay.visible = true }
 
   }, false);
 
   toggleButton2.addEventListener('click', function () {
-    fisrtOverlay.visible = false;
-    secondOverlay.visible = !secondOverlay.visible;
+    ballOverlay.visible = false;
+    micOverlay.visible = !micOverlay.visible;
     baseOverlay.visible = false;
-    if (!fisrtOverlay.visible && !secondOverlay.visible) { baseOverlay.visible = true };
+    // if (!ballOverlay.visible && !micOverlay.visible) { baseOverlay.visible = true };
   }, false);
 
 
@@ -153,8 +198,10 @@ function capture() {
   faceBtn.style.display = 'flex';
   captureBtn.style.display = 'none';
 
-  let ursos = document.getElementById('ursos');
-  ursos.style.visibility = 'hidden';
+  let coresDiv = document.getElementById('coresDiv');
+  let ursosDiv = document.getElementById('ursosDiv');
+  coresDiv.style.visibility = 'hidden';
+  ursosDiv.style.visibility = 'hidden';
 
   var canvas = document.getElementById("jeeFaceFilterCanvas");
   var dataURL = canvas.toDataURL("image/png");

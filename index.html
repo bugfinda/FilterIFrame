@@ -34,14 +34,25 @@
   <div class="loading" id="loading">
     <h2>Carregando câmera</h2>
   </div>
+
   <div class=" ui">
 
-    <div class="ursos" id="ursos">
-      <img class="urso1" id="toggleBtn2" src="./images/btn_urso_mic120.png" alt="">
-      <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola120.png" alt="">
-      <div class="texto" id="texto">
+    <div class="cores" id="coresDiv">
+      <div class="cores-texto">
+        Escolha o template da foto!
+      </div>
+      <img class="cor1" id="toggleColor1" src="./images/darkBlue_btn.png" alt="">
+      <img class="cor2" id="toggleColor2" src="./images/blue_btn.png" alt="">
+      <img class="cor3" id="toggleColor3" src="./images/purple_btn.png" alt="">
+
+    </div>
+    <div class="ursos" id="ursosDiv">
+      <div class="ursos-texto">
         Escolha o Ursinho que vai estar com você na foto!
       </div>
+      <img class="urso1" id="toggleBtn2" src="./images/btn_urso_mic120.png" alt="">
+      <img class="urso2" id="toggleBtn1" src="./images/btn_urso_bola120.png" alt="">
+
     </div>
 
     <div class="link-container">
@@ -96,7 +107,6 @@
     /* height: 60px; */
   }
 
-
   .big-container {
     display: flex;
     flex-direction: column;
@@ -143,19 +153,6 @@
     height: 700px; */
   }
 
-  .ui {
-    /* background-color: red; */
-    position: absolute;
-    top: calc(-80px + 50.25vw);
-    left: 0px;
-    width: 100vw;
-    z-index: 10;
-    display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-    /* justify-content: flex-end; */
-  }
-
   .loading {
     position: absolute;
     top: calc(-80px + 50.25vw);
@@ -169,6 +166,19 @@
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
+  }
+
+  .ui {
+    /* background-color: red; */
+    position: absolute;
+    top: calc(-80px + 50.25vw);
+    left: 0px;
+    width: 100vw;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* justify-content: flex-end; */
   }
 
   .link-container {
@@ -186,8 +196,9 @@
     z-index: 11;
     margin-top: -140px;
     width: 100%;
-    text-align: center;
-    padding-right: 800px;
+    left: 400px;
+    /* text-align: center; */
+    /* padding-right: 200px; */
   }
 
   .urso1 {
@@ -198,7 +209,7 @@
     /* height: 100%; */
   }
 
-  .texto {
+  .ursos-texto {
     position: absolute;
     z-index: 11;
     margin-top: -5px;
@@ -208,6 +219,16 @@
     text-align: center;
     padding-right: 800px;
 
+  }
+
+  .cores {
+    position: absolute;
+    z-index: 11;
+    margin-top: -140px;
+    width: 100%;
+    /* text-align: center; */
+    left: 0;
+    /* padding-right: 800px; */
   }
 
   #faceBtn,

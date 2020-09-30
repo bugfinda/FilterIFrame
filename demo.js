@@ -103,7 +103,13 @@ function init_threeScene(spec) {
     captureBtn.style.display = 'flex';
 
     coresDiv.style.visibility = 'visible';
-    ursosDiv.style.visibility = 'visible';
+    ursosDiv.style.visibility = 'hidden';
+
+    baseOverlay.visible = true;
+    blueOverlay.visible = false;
+    purpleOverlay.visible = false;
+    micOverlay.visible = false;
+    ballOverlay.visible = false;
 
   }, false);
 

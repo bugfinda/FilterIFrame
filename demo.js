@@ -208,7 +208,7 @@ function capture() {
   galeryBtn.style.display = 'flex';
   closeBtn.style.display = 'flex';
   downloadBtn.style.display = 'flex';
-  faceBtn.style.display = 'flex';
+  faceBtn.style.display = 'none';
   captureBtn.style.display = 'none';
 
   let coresDiv = document.getElementById('coresDiv');

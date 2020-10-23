@@ -42,7 +42,7 @@ function init_threeScene(spec) {
   }
 
   //Create overlays. We reuse the geometry of the video
-  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template1.png'), true));
+  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/poster.jpg'), true));
   baseOverlay.visible = true;
   threeStuffs.scene.add(baseOverlay);
 

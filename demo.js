@@ -129,7 +129,7 @@ function init_threeScene(spec) {
     blueOverlay.visible = true;
     purpleOverlay.visible = false;
 
-    ursosDiv.style.visibility = 'visible';
+    // ursosDiv.style.visibility = 'visible';
 
   }, false);
 
@@ -138,7 +138,7 @@ function init_threeScene(spec) {
     blueOverlay.visible = false;
     purpleOverlay.visible = true;
 
-    ursosDiv.style.visibility = 'visible';
+    // ursosDiv.style.visibility = 'visible';
 
   }, false);
 

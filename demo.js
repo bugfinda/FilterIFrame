@@ -273,7 +273,7 @@ function drawSecondCanvas() {
 function sendToGalery() {
   console.log("send to galery");
   let downloader = document.getElementById("download");
-  let msg = JSON.stringify(downloader.href)
+  let msg = JSON.stringify({ 'sender': 'upload', 'uri': downloader.href })
   window.parent.postMessage(msg, '*');
 }
 

@@ -42,15 +42,15 @@ function init_threeScene(spec) {
   }
 
   //Create overlays. We reuse the geometry of the video
-  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/semesp1.png'), true));
+  const baseOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template1.png'), true));
   baseOverlay.visible = true;
   threeStuffs.scene.add(baseOverlay);
 
-  const blueOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/semesp3.png'), true));
+  const blueOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template3.png'), true));
   blueOverlay.visible = false;
   threeStuffs.scene.add(blueOverlay);
 
-  const purpleOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/semesp2.png'), true));
+  const purpleOverlay = new THREE.Mesh(threeStuffs.videoMesh.geometry, create_mat2d(new THREE.TextureLoader().load('./images/template2.png'), true));
   purpleOverlay.visible = false;
   threeStuffs.scene.add(purpleOverlay);
 
@@ -129,7 +129,7 @@ function init_threeScene(spec) {
     blueOverlay.visible = true;
     purpleOverlay.visible = false;
 
-    // ursosDiv.style.visibility = 'visible';
+    ursosDiv.style.visibility = 'visible';
 
   }, false);
 
@@ -138,7 +138,7 @@ function init_threeScene(spec) {
     blueOverlay.visible = false;
     purpleOverlay.visible = true;
 
-    // ursosDiv.style.visibility = 'visible';
+    ursosDiv.style.visibility = 'visible';
 
   }, false);
 
